@@ -70,3 +70,48 @@ Ejemplo del JSON
 Elimina la flor del ID pasado en la URL
 
 [http://localhost:8080/api/flores/1](http://localhost:8080/api/flores/1)
+
+# Pruebas
+
+En la parte de pruebas unitarias se utilizó el archivo: FloresControllerTest
+
+Ubicado en src\test\java\com\prueba\apirest\FloresControllerTest.java
+
+## findAll
+
+Utiliza el createFlores1() para llenar la variable estática y como resultado deben haber 6 flores en el arreglo.
+
+Utiliza el createFlores2() para llenar la variable estática y como resultado deben haber 5 flores en el arreglo.
+
+## findAllkometsales
+
+Hace un get al enpoint /api/floreskometsales
+
+Valida que los elementos del arreglo que trae y verifica que el actual sea lexicográficamente mayor al siguiente a través de un compareTo.
+
+Adicionalmente valida que traiga en la variable name ‘kometsales’
+
+## findAllOverPrice
+
+Hace un get al enpoint /api/flores?pPrice=20.0 y hace 2 pruebas
+
+1. Un inicial con pPrice=20.0 que debe traer 3 resultados
+2. Una segunda prueba con pPrice=26.0 que debe traer 2 flores de resultados
+
+## deleteFlor
+
+Hace el delete de una flor y comprueba que el resultado de hacer get después del delete es 4. 
+
+## findAllByName
+
+Trae los nombres que tengan amapola que sólo debe ser 1
+
+Trae los nombres que tengan petunia en este caso serían 2. 
+
+## createFlores2
+
+Crea un conjunto de flores de pruebas
+
+## createFlores1
+
+Crea un conjunto de flores de pruebas
