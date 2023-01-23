@@ -1,5 +1,4 @@
-# PT-KS
-# Readme
+# PT-KS - Readme
 
 La aplicación está en Java SpringBoot versión 2.7.8
 
