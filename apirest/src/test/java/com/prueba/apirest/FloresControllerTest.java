@@ -126,12 +126,33 @@ class FloresControllerTest {
 		rFlores=objectMapper.readValue(findById.getResponse().getContentAsString(), new TypeReference<List<FloresDto>>(){});
 		assert rFlores.size() == 4;
 	}
+	
+	@Test
+	void findAllByName() throws Exception{
+		MvcResult findById = mockMvc.perform(
+	            get("/api/flores?pName=amapola").accept(MimeTypeUtils.APPLICATION_JSON_VALUE))
+	        .andExpect(status().isOk())
+	        .andReturn();
+		
+		List<FloresDtoID> rFlores=objectMapper.readValue(findById.getResponse().getContentAsString(), new TypeReference<List<FloresDtoID>>(){});
+		System.out.println(rFlores.size());
+		assert rFlores.size() == 1;
+		
+		findById = mockMvc.perform(
+	            get("/api/flores?pName=petunia").accept(MimeTypeUtils.APPLICATION_JSON_VALUE))
+	        .andExpect(status().isOk())
+	        .andReturn();
+		
+		rFlores=objectMapper.readValue(findById.getResponse().getContentAsString(), new TypeReference<List<FloresDtoID>>(){});
+		System.out.println(rFlores.size());
+		assert rFlores.size() == 2;
+	}
 	private List<FloresDtoID> createFlores2() {
 		List<FloresDtoID> flores = new ArrayList<FloresDtoID>();
 		FloresDtoID flor1 = new FloresDtoID( 1,"amapola", 5);
 		FloresDtoID flor2 = new FloresDtoID( 2,"petunia", 1.3);	
 		FloresDtoID flor3 = new FloresDtoID( 3,"violeta", 25);
-		FloresDtoID flor4 = new FloresDtoID( 4,"petunia", 36);
+		FloresDtoID flor4 = new FloresDtoID( 4,"petunia2", 36);
 		FloresDtoID flor5 = new FloresDtoID( 5,"hortensia", 42);
 		flores.add(flor1);
 		flores.add(flor2);
