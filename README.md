@@ -13,7 +13,7 @@ En el siguiente link podrán encontrar una colección de Postman con cada uno de
 
 Se encontrarán los siguientes endpoint:
 
-![Untitled](Readme%2084e9c8d6be894503abc6acc8c0da77d6/Untitled.png)
+![Postman](Postman.png)
 
 ### Get By Name
 
